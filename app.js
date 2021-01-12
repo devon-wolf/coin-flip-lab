@@ -1,3 +1,5 @@
+import { checkGuess } from './compareUtils.js';
+
 // fluctuating variables
 let userInput = document.getElementById('user-guess');
 let guessCounter = document.getElementById('remaining-guesses');
@@ -22,6 +24,10 @@ let guessesRemaining = 4;
 // set event listeners to update state and DOM
 guessButton.addEventListener('click', () => {
 	// console.log('Someone clicked the guess button.');
+	
+    const guess = userInput.valueAsNumber;
+    // console.log(guess, randomNumber);
+
     guessesRemaining--;
     guessCounter.textContent = guessesRemaining;
 });
