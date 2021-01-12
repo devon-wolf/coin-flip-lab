@@ -26,7 +26,10 @@ guessButton.addEventListener('click', () => {
 	// console.log('Someone clicked the guess button.');
 	
     const guess = userInput.valueAsNumber;
-    // console.log(guess, randomNumber);
+	// console.log(guess, randomNumber);
+	
+    const result = checkGuess(guess, randomNumber);
+    // console.log(result);
 
     guessesRemaining--;
     guessCounter.textContent = guessesRemaining;

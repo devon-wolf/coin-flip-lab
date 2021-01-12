@@ -1,1 +1,1 @@
-import './checkGuess.test.js';
+import './compareUtils.test.js';
