@@ -27,7 +27,7 @@ guessButton.addEventListener('click', () => {
     const result = checkGuess(guess, randomNumber);	
     evalResult(result);
     if (result === 0) {
-        endGame();
+        endGame('win');
         return;
     }
 	
