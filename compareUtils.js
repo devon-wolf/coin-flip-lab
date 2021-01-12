@@ -1,3 +1,5 @@
+const evalBox = document.getElementById('guess-eval');
+
 export function checkGuess(guess, answer) {
     if (guess === answer) {
         return 0;
@@ -22,21 +24,17 @@ export function evalResult(value) {
     }
     else {
         console.log('Goldilocks got an unexpected argument!');
-        return 'error!';
     }
 }
 
 function tooLow() {
-    console.log('execute tooLow!');
-    return 'tooLow';
+    evalBox.textContent = 'That was too low.';
 }
 
 function tooHigh() {
-    console.log('execute tooHigh!');
-    return 'tooHigh';
+    evalBox.textContent = 'That was too high.';
 }
 
 function justRight() {
-    console.log('execute justRight!');
-    return 'justRight';
+    evalBox.textContent = 'You got it!';
 }

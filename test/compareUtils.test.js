@@ -1,7 +1,7 @@
 // import { example } from '../example.js';
 import {
     checkGuess,
-    evalResult
+    // evalResult
 } from '../compareUtils.js';
 
 const test = QUnit.test;
@@ -32,7 +32,7 @@ test('It will return 1 if given 20 and 3', (expect) => {
 });
 
 // temporary tests for evalResult
-test('It will return "tooLow" if given -1', (expect) => {
+/* test('It will return "tooLow" if given -1', (expect) => {
     const expected = 'tooLow';
     
     const actual = evalResult(-1);
@@ -62,5 +62,5 @@ test('It will return "error!" if given 3', (expect) => {
     const actual = evalResult(3);
 
     expect.equal(actual, expected);
-});
+}); */
 

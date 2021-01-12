@@ -39,6 +39,7 @@ main {
 	color: lightgray;
 	padding: 1rem;
 	margin: 1rem;
+	border: .5rem solid indigo;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -48,6 +49,7 @@ section {
 	background-color: crimson;
 	padding: 1rem;
 	margin: 1rem;
+	border: .25rem solid indigo;
 }
 
 input{
@@ -57,6 +59,8 @@ input{
 
 button {
 	font-family: monospace;
+	border: 2px solid indigo;
+	background-color: lightgray;
 }
 
 footer {
