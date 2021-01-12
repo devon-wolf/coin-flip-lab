@@ -1,4 +1,9 @@
-import { checkGuess, evalResult } from './compareUtils.js';
+import {
+    checkGuess,
+    evalResult
+} from './compareUtils.js';
+
+import { endGame } from './gameStateUtils.js';
 
 // fluctuating variables
 let userInput = document.getElementById('user-guess');
@@ -12,27 +17,25 @@ const endGameBox = document.getElementById('game-over');
 const guessButton = document.getElementById('submit-guess');
 const resetButton = document.getElementById('reset-button');
 
-// console.log(userInput, guessCounter, evalBox, counterBox, endGameBox, guessButton, resetButton);
-
 // initialize state
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessesRemaining = 4;
 
-// console.log(randomNumber, guessesRemaining);
-
 // set event listeners to update state and DOM
-guessButton.addEventListener('click', () => {
-	// console.log('Someone clicked the guess button.');
-	
-    const guess = userInput.valueAsNumber;
-	// console.log(guess, randomNumber);
-	
-    const result = checkGuess(guess, randomNumber);
-	// console.log(result);
-	
+guessButton.addEventListener('click', () => {	
+    const guess = userInput.valueAsNumber;	
+    const result = checkGuess(guess, randomNumber);	
     evalResult(result);
-
+    if (result === 0) {
+        endGame();
+        return;
+    }
+	
     guessesRemaining--;
+    if (guessesRemaining < 1) {
+        endGame();
+        return;
+    }
     guessCounter.textContent = guessesRemaining;
 });
 
