@@ -1,1 +1,3 @@
-# EDIT-THIS-README
+# coin-flip-lab
+
+
