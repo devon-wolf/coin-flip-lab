@@ -27,6 +27,7 @@ let guessesRemaining = 4;
 guessButton.addEventListener('click', () => {	
     const guess = userInput.valueAsNumber;	
     const result = checkGuess(guess, randomNumber);	
+	
     evalResult(result);
     if (result === 0) {
         endGame('win');
@@ -36,7 +37,6 @@ guessButton.addEventListener('click', () => {
     guessesRemaining--;
     userInput.value = '';
     guessCounter.textContent = guessesRemaining;
-    console.log(randomNumber, guessesRemaining);
 
     if (guessesRemaining < 1) {
         endGame();
@@ -44,15 +44,15 @@ guessButton.addEventListener('click', () => {
     }
 });
 
+// reset the game
 resetButton.addEventListener('click', () => {
     inputBox.classList.remove('none');
     counterBox.classList.remove('none');
     endGameBox.classList.add('none');
-	
-	
+    evalBox.classList.add('none');
 	
     randomNumber = Math.ceil(Math.random() * 20);
     guessesRemaining = 4;
+	
     guessCounter.textContent = guessesRemaining;
-    console.log(randomNumber, guessesRemaining);
 });
