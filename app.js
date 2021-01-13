@@ -8,11 +8,9 @@ import {
     resetGame
 } from './gameStateUtils.js';
 
-// fluctuating variables
+// fluctuating variables (I think these might be okay as const? Since they reference a place, not a value?)
 let userInput = document.getElementById('user-guess');
 let guessCounter = document.getElementById('remaining-guesses');
-
-// display areas
 
 // buttons
 const guessButton = document.getElementById('submit-guess');
@@ -22,7 +20,7 @@ const resetButton = document.getElementById('reset-button');
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessesRemaining = 4;
 
-// set event listeners to update state and DOM
+// set event listener for guess button
 guessButton.addEventListener('click', () => {	
     const guess = userInput.valueAsNumber;
     userInput.value = '';
