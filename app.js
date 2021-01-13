@@ -10,7 +10,9 @@ let userInput = document.getElementById('user-guess');
 let guessCounter = document.getElementById('remaining-guesses');
 
 // display areas
+const inputBox = document.getElementById('input-box');
 const counterBox = document.getElementById('guess-counter');
+const evalBox = document.getElementById('guess-eval');
 const endGameBox = document.getElementById('game-over');
 
 // buttons
@@ -32,13 +34,25 @@ guessButton.addEventListener('click', () => {
     }
 	
     guessesRemaining--;
+    userInput.value = '';
+    guessCounter.textContent = guessesRemaining;
+    console.log(randomNumber, guessesRemaining);
+
     if (guessesRemaining < 1) {
         endGame();
         return;
     }
-    guessCounter.textContent = guessesRemaining;
 });
 
 resetButton.addEventListener('click', () => {
-    // console.log('Someone clicked the reset button.');
+    inputBox.classList.remove('none');
+    counterBox.classList.remove('none');
+    endGameBox.classList.add('none');
+	
+	
+	
+    randomNumber = Math.ceil(Math.random() * 20);
+    guessesRemaining = 4;
+    guessCounter.textContent = guessesRemaining;
+    console.log(randomNumber, guessesRemaining);
 });

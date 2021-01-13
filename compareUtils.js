@@ -13,6 +13,7 @@ export function checkGuess(guess, answer) {
 }
 
 export function evalResult(value) {
+    evalBox.classList.remove('none');
     if (value === -1) {
         return tooLow();
     }
