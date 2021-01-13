@@ -3,17 +3,16 @@ import {
     evalResult
 } from './compareUtils.js';
 
-import { endGame } from './gameStateUtils.js';
+import {
+    endGame,
+    resetGame
+} from './gameStateUtils.js';
 
 // fluctuating variables
 let userInput = document.getElementById('user-guess');
 let guessCounter = document.getElementById('remaining-guesses');
 
 // display areas
-const inputBox = document.getElementById('input-box');
-const counterBox = document.getElementById('guess-counter');
-const evalBox = document.getElementById('guess-eval');
-const endGameBox = document.getElementById('game-over');
 
 // buttons
 const guessButton = document.getElementById('submit-guess');
@@ -25,9 +24,10 @@ let guessesRemaining = 4;
 
 // set event listeners to update state and DOM
 guessButton.addEventListener('click', () => {	
-    const guess = userInput.valueAsNumber;	
+    const guess = userInput.valueAsNumber;
+    userInput.value = '';
+
     const result = checkGuess(guess, randomNumber);	
-	
     evalResult(result);
     if (result === 0) {
         endGame('win');
@@ -35,7 +35,6 @@ guessButton.addEventListener('click', () => {
     }
 	
     guessesRemaining--;
-    userInput.value = '';
     guessCounter.textContent = guessesRemaining;
 
     if (guessesRemaining < 1) {
@@ -46,13 +45,8 @@ guessButton.addEventListener('click', () => {
 
 // reset the game
 resetButton.addEventListener('click', () => {
-    inputBox.classList.remove('none');
-    counterBox.classList.remove('none');
-    endGameBox.classList.add('none');
-    evalBox.classList.add('none');
-	
+    resetGame();
     randomNumber = Math.ceil(Math.random() * 20);
     guessesRemaining = 4;
-	
     guessCounter.textContent = guessesRemaining;
 });

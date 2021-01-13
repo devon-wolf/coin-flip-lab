@@ -17,6 +17,13 @@ export function endGame(state) {
     }
 }
 
+export function resetGame() {
+    inputBox.classList.remove('none');
+    counterBox.classList.remove('none');
+    endGameBox.classList.add('none');
+    evalBox.classList.add('none');
+}
+
 function winGame() {
     endGameBox.textContent = 'Congratulations, you won!';
 }
