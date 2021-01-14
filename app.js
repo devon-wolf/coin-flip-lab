@@ -19,25 +19,29 @@ const resetButton = document.getElementById('reset-button');
 // initialize state
 let randomNumber = Math.ceil(Math.random() * 20);
 let guessesRemaining = 4;
-
+console.log(randomNumber);
 // set event listener for guess button
 guessButton.addEventListener('click', () => {	
-    const guess = userInput.valueAsNumber;
-    userInput.value = '';
+    if (userInput.value){
+        const guess = userInput.valueAsNumber;
+        userInput.value = '';
 
-    const result = checkGuess(guess, randomNumber);	
-    evalResult(result);
-    if (result === 0) {
-        endGame('win');
-        return;
-    }
-	
-    guessesRemaining--;
-    guessCounter.textContent = guessesRemaining;
+        const result = checkGuess(guess, randomNumber);
+        console.log(guess, randomNumber);
 
-    if (guessesRemaining < 1) {
-        endGame();
-        return;
+        evalResult(result);
+        if (result === 0) {
+            endGame('win');
+            return;
+        }
+        
+        guessesRemaining--;
+        guessCounter.textContent = guessesRemaining;
+
+        if (guessesRemaining < 1) {
+            endGame();
+            return;
+        }
     }
 });
 
